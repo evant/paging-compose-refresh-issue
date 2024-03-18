@@ -85,7 +85,10 @@ class MainActivity : ComponentActivity() {
 val pager = Pager(
     config = PagingConfig(pageSize = 20),
     remoteMediator = FakeRemoteMediator(),
-    pagingSourceFactory = { FakePagingSource() }
+    pagingSourceFactory = {
+        Log.d("TEST", "page source invalidated")
+        FakePagingSource()
+    }
 )
 
 class FakeRemoteMediator : RemoteMediator<Int, String>() {
